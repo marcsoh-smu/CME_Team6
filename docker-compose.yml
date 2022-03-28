@@ -17,7 +17,11 @@ services:
     image: marcsoh/products
     restart: always
     environment:
-      dbURL: mysql+mysqlconnector://root:sophia123@cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com:3306/CME
+      DB_USER: root
+      DB_NAME: cme-db
+      DB_PASSWORD: sophia123
+      DB_HOST: cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com
+      #dbURL: mysql+mysqlconnector://root:sophia123@cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com:3306/CME
       PYTHONUNBUFFERED: 1
     ports:
       - "5005:5005"
