@@ -67,7 +67,7 @@
 
 
         var parentRow = document.getElementById("row_cards")
-        axios.get('http://localhost:5000/product')
+        axios.get('http://localhost:5005/product')
             .then(response => {
                 let fullResponse = response.data;
                 let allProducts = fullResponse.data;

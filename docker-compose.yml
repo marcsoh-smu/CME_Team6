@@ -1,0 +1,23 @@
+#NOTE: Change your docker_id in image: marcsoh/products
+
+#Command to run:
+#docker-compose build
+#docker-compose up -d
+
+version: "3.8"
+
+services:
+  #################################
+  # Products
+  #################################
+  products:
+    build:
+      context: ./
+      dockerfile: api/products/Dockerfile
+    image: marcsoh/products
+    restart: always
+    environment:
+      dbURL: mysql+mysqlconnector://root:sophia123@cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com:3306/CME
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "5005:5005"
