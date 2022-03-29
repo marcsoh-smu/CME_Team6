@@ -1,4 +1,4 @@
-#NOTE: Change your docker_id in image: marcsoh/products
+#NOTE: Change your docker_id in image: <docker_ID>/products
 
 #Command to run:
 #docker-compose build
@@ -14,14 +14,11 @@ services:
     build:
       context: ./
       dockerfile: api/products/Dockerfile
-    image: marcsoh/products
+    image: ykloo/products
     restart: always
     environment:
-      DB_USER: root
-      DB_NAME: cme-db
-      DB_PASSWORD: sophia123
-      DB_HOST: cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com
-      #dbURL: mysql+mysqlconnector://root:sophia123@cme-db.clzssfjjqbg4.ap-southeast-1.rds.amazonaws.com:3306/CME
       PYTHONUNBUFFERED: 1
+    env_file:
+      - config.env
     ports:
       - "5005:5005"

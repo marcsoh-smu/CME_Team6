@@ -1,12 +1,7 @@
 import os
-from dotenv import load_dotenv
-from pathlib import Path
 
 
-dotenv_path = Path('../../config.env')
-load_dotenv(dotenv_path=dotenv_path)
-
-SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI')
+SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
