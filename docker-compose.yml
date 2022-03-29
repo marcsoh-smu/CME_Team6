@@ -14,7 +14,7 @@ services:
     build:
       context: ./
       dockerfile: api/products/Dockerfile
-    image: ykloo/products
+    image: haziqilham/products
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
