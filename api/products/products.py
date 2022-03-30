@@ -1,7 +1,8 @@
 import os
 
 
-SQLALCHEMY_DATABASE_URI = os.environ['DB_URL']
+# SQLALCHEMY_DATABASE_URI = os.environ['DB_URL']
+SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS

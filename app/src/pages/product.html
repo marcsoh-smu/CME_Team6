@@ -117,12 +117,13 @@
 };
 console.log(data)
 
-fetch(link, {
+fetch(link,{
   method: "POST",
   headers: {'Content-Type': 'application/json'}, 
   body: JSON.stringify(data)
   
-}).then(res => {
+})
+  .then(res => {
   console.log("Request complete! response:", res);
 });
             
