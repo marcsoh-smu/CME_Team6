@@ -106,23 +106,25 @@
 
             function add(element){
             var link = "http://localhost:5000/add/".concat(element)
+            console.log(element)
+            const Newid = element
+            console.log(Newid)
 
-           var Newid = element
 
-            fetch(link,{
-                method: 'POST',
-                mode: 'no-cors',
-           
-           headers: {
-             'Content-Type': 'application/json'
-       },
-       body: JSON.stringify(id =this.Newid) 
-            })    
-              
-            .then(response => response.json())
-            .then(data => console.log(data));
-            
-            
+            let data = {
+                id : Newid
+  
+};
+console.log(data)
+
+fetch(link, {
+  method: "POST",
+  headers: {'Content-Type': 'application/json'}, 
+  body: JSON.stringify(data)
+  
+}).then(res => {
+  console.log("Request complete! response:", res);
+});
             
             
         }

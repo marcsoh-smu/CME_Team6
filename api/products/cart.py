@@ -1,5 +1,6 @@
 import os
 
+
 # Comment this out during test
 SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
 
@@ -10,6 +11,8 @@ from flask import Flask, render_template
 
 import json
 from flask_sqlalchemy import SQLAlchemy
+
+
 
  
 app = Flask(__name__)
@@ -56,14 +59,34 @@ def get_all():
 
 
 
-@app.route("/add/<string:id>", methods=['GET','POST'])
+@app.route("/add/<string:id>", methods=['POST'])
 def addToCart(id):
-#   productId =(request.args.get("productId"))
+    
+    # data = request.get_json()
+    
+    ID = shoppingcart(id)
+    try:
+        db.session.add(ID)
+        db.session.commit()
+    except:
+        return jsonify(
+        {
+                "code":500,
+                "data":{
+                    "cart_id":id
+                },
+                "message":"An error occured while adding to cart."
+            }
+        ),500
+    
+    return jsonify(
+        {
+            "code":201,
+            "data":ID.json()
+        }
+    ),201
 
-  ID = shoppingcart(id)
-  db.session.add(ID)
-  db.session.commit
-
+ 
 
 
 if __name__ == "__main__":
