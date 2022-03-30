@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  parameter-store:
+    DB_URL: "/DB/URL"
 phases:
   build:
     commands:
