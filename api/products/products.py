@@ -1,13 +1,11 @@
 import os
 
+SQLALCHEMY_DATABASE_URI = os.environ['DB_URL']
 
-# SQLALCHEMY_DATABASE_URI = os.environ['DB_URL']
-SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URI']
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-#from secrets_manager import get_secret
 
 import json
 from flask_sqlalchemy import SQLAlchemy
@@ -16,15 +14,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 CORS(app)
 
-#db_config = get_secret()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-# app.config['SQLALCHEMY_DATABASE_URI'] = (
-#     f'mysql+mysqlconnector://{db_config["username"]}:' +
-#     f'{db_config["password"]}@' +
-#     f'{db_config["host"]}:3306/' +
-#     f'{db_config["db_name"]}'
-# )
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
  
@@ -62,7 +53,7 @@ def get_all():
     return jsonify(
         {
             "code": 404,
-            "message": "There are no books."
+            "message": "There are no products."
         }
     ), 404
 

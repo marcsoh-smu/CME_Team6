@@ -14,25 +14,28 @@ services:
     build:
       context: ./
       dockerfile: api/products/Dockerfile
-    image: haziqilham/products
+    image: ykloo/products
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
-    env_file:
-      - config.env
+    # env_file:
+    #   - config.env
     ports:
       - "5005:5005"
+  #################################
+  # Cart
+  #################################
 
   cart:
     build:
       context: ./
       dockerfile: api/products/cart.Dockerfile
-    image: haziqilham/cart
+    image: ykloo/cart
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
-    env_file:
-      - config.env
+    # env_file:
+    #   - config.env
     ports:
       - "5000:5000"
 
