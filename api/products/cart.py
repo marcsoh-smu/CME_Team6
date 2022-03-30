@@ -41,6 +41,7 @@ class shoppingcart(db.Model):
 @app.route("/cartitems")
 def get_all():
     cart_items = shoppingcart.query.all()
+   
     if len(cart_items):
         return jsonify(
             {
