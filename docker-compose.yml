@@ -38,4 +38,20 @@ services:
     #   - config.env
     ports:
       - "5000:5000"
+  
+  #################################
+  # Orders
+  #################################
+  orders:
+    build:
+      context: ./
+      dockerfile: api/orders/orders.Dockerfile
+    image: ykloo/orders
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
+    # env_file:
+    #   - config.env
+    ports:
+      - "5010:5010"
 
