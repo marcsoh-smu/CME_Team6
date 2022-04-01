@@ -12,3 +12,4 @@ artifacts:
   files:
     - "**/*"
   base-directory: "app"
+  encryption: false
