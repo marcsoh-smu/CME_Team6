@@ -7,3 +7,9 @@ phases:
     commands:
       - docker-compose build
       - docker-compose up -d
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build
