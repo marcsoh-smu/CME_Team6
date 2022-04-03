@@ -104,14 +104,14 @@
                             console.log(totalPrice)
 
 
-                            newElem.innerHTML = `<img src="https://cmeproductsbucket.s3.ap-southeast-1.amazonaws.com/assets/${productID}.jpg" class="card-img-top" alt="...">
+                            newElem.innerHTML = `<form><img src="https://cmeproductsbucket.s3.ap-southeast-1.amazonaws.com/assets/${productID}.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">${productName}</h5>
                                             <div class="card-text">${productDescription}</div>
                                             <div class="card-text">${productPrice} SGD</div>
                                             <input type="submit" value="Remove from Cart" class="btn btn-dark mt-3" onclick="del(${productID})" />      
                                                                                   
-                                        </div>
+                                        </div></form>
                                         
                                         `;
                             newElem.classList.add('card', 'border-0', 'mx-2');
