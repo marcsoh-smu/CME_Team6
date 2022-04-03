@@ -89,14 +89,15 @@ def addToCart(id):
     ),201
 
  
-@app.route("/del/<string:id>", methods=['DELETE'])
+@app.route("/del/<string:id>", methods=['POST'])
 def delFromCart(id):
     
     # data = request.get_json()
     
     ID = shoppingcart(id)
     try:
-        db.session.delete(ID)
+        item = shoppingcart.query.get(id)
+        db.session.delete(item)
         db.session.commit()
     except:
         return jsonify(
