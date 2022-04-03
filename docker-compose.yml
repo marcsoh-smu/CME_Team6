@@ -14,12 +14,12 @@ services:
     build:
       context: ./
       dockerfile: api/products/Dockerfile
-    image: ykloo/products
+    image: haziqilham/products
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
-    # env_file:
-    #   - config.env
+    env_file:
+      - config.env
     ports:
       - "5005:5005"
   #################################
@@ -30,12 +30,12 @@ services:
     build:
       context: ./
       dockerfile: api/products/cart.Dockerfile
-    image: ykloo/cart
+    image: haziqilham/cart
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
-    # env_file:
-    #   - config.env
+    env_file:
+      - config.env
     ports:
       - "5000:5000"
   
@@ -46,12 +46,12 @@ services:
     build:
       context: ./
       dockerfile: api/orders/orders.Dockerfile
-    image: ykloo/orders
+    image: haziqilham/orders
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
-    # env_file:
-    #   - config.env
+    env_file:
+      - config.env
     ports:
       - "5010:5010"
 
