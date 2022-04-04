@@ -42,15 +42,15 @@ services:
   #################################
   # Orders
   #################################
-  # orders:
-  #   build:
-  #     context: ./
-  #     dockerfile: api/orders/orders.Dockerfile
-  #   image: haziqilham/orders
-  #   restart: always
-  #   environment:
-  #     PYTHONUNBUFFERED: 1
-  #   env_file:
-  #     - config.env
-  #   ports:
-  #     - "5010:5010"
+  orders:
+    build:
+      context: ./
+      dockerfile: api/orders/orders.Dockerfile
+    image: haziqilham/orders
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
+    env_file:
+      - config.env
+    ports:
+      - "5010:5010"
