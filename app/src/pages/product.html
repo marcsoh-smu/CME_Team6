@@ -59,6 +59,32 @@
         </div>
     </div>
 
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Item added to cart</h5>
+        </div>
+        <!-- <div class="modal-body">
+            Item added to cart
+        </div> -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Continue Shopping</button>
+          <a type="button" class="btn btn-primary" href="./cart.html">Go to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -91,8 +117,7 @@
                                             <h5 class="card-title">${productName}</h5>
                                             <div class="card-text">${productDescription}</div>
                                             <div class="card-text">${productPrice} SGD</div>
-                                            <input type="submit" value="Add to Cart" class="btn btn-dark mt-3" onclick="add(${productID})" />      
-                                                                                  
+                                            <input type="submit" value="Add to Cart" class="btn btn-dark mt-3" onclick="add(${productID})" data-toggle="modal" data-target="#exampleModalCenter"/>                                     
                                         </div>
                                         `;
                     newElem.classList.add('card', 'border-0', 'mx-2');
@@ -105,7 +130,7 @@
 
 
             function add(element){
-            var link = "http://localhost:5000/add/".concat(element)
+            var link = "http://localhost:5001/add/".concat(element)
             console.log(element)
             const Newid = element
             console.log(Newid)
