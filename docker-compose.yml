@@ -14,7 +14,7 @@ services:
     build:
       context: ./
       dockerfile: api/products/Dockerfile
-    image: haziqilham/products
+    image: marcsoh/products
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
@@ -29,29 +29,28 @@ services:
   cart:
     build:
       context: ./
-      dockerfile: api/products/cart.Dockerfile
-    image: haziqilham/cart
+      dockerfile: api/cart/cart.Dockerfile
+    image: marcsoh/cart
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
     env_file:
       - config.env
     ports:
-      - "5000:5000"
-  
+      - "5001:5001"
+
   #################################
   # Orders
   #################################
-  orders:
-    build:
-      context: ./
-      dockerfile: api/orders/orders.Dockerfile
-    image: haziqilham/orders
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-    env_file:
-      - config.env
-    ports:
-      - "5010:5010"
-
+  # orders:
+  #   build:
+  #     context: ./
+  #     dockerfile: api/orders/orders.Dockerfile
+  #   image: haziqilham/orders
+  #   restart: always
+  #   environment:
+  #     PYTHONUNBUFFERED: 1
+  #   env_file:
+  #     - config.env
+  #   ports:
+  #     - "5010:5010"
