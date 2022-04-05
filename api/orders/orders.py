@@ -31,5 +31,25 @@ class orders(db.Model):
       def json(self):
             return {"id": self.id}
 
+@app.route("/ordersitem")
+def get_all():
+    orders_items = orders.query.all()
+   
+    if len(orders_items):
+        return jsonify(
+            {
+                "code": 200,
+                "data": {
+                    "products": [product.json() for product in orders_items]
+                }
+            }
+        )
+    return jsonify(
+        {
+            "code": 404,
+            "message": "No items in orders"
+        }
+    ), 404
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5010, debug=True)
