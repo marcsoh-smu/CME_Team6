@@ -93,7 +93,7 @@
 
 
         var parentRow = document.getElementById("row_cards")
-        axios.get('http://product-182719353.ap-southeast-1.elb.amazonaws.com:5005/product')
+        axios.get('https://product-182719353.ap-southeast-1.elb.amazonaws.com:5005/product')
             .then(response => {
                 let fullResponse = response.data;
                 let allProducts = fullResponse.data;
@@ -125,7 +125,7 @@
 
 
             function add(element){
-            var link = "http://cartlb-946073435.ap-southeast-1.elb.amazonaws.com:5001/add/".concat(element)
+            var link = "https://cartlb-946073435.ap-southeast-1.elb.amazonaws.com:5001/add/".concat(element)
             console.log(element)
             const Newid = element
             console.log(Newid)
