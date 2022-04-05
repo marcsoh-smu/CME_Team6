@@ -73,7 +73,7 @@
 
         var parentRow = document.getElementById("row_cards")
             //cart details 
-        axios.get('https://cartlb-946073435.ap-southeast-1.elb.amazonaws.com:5001/cartitems')
+        axios.get('https://cart.wucci.link:5001/cartitems')
             .then(response => {
                 let CompleteResponse = response.data;
                 let cartItems = CompleteResponse.data;
@@ -85,7 +85,7 @@
                 for (let i = 0; i < cartItems.products.length; i++) {
                     var CartID = cartItems.products[i];
                     console.log(CartID);
-                    axios.get("https://product-182719353.ap-southeast-1.elb.amazonaws.com:5005/product/".concat(CartID.id))
+                    axios.get("https://product.wucci.link:5005/product/".concat(CartID.id))
                         .then(response => {
                             let totalResponse = response.data;
                             let anotherResponse = totalResponse.data;
@@ -127,7 +127,7 @@
 
 
         function del(element) {
-            var link = "https://cartlb-946073435.ap-southeast-1.elb.amazonaws.com:5001/del/".concat(element)
+            var link = "https://cart.wucci.link:5001/del/".concat(element)
             console.log(element)
             const Newid = element
             console.log(Newid)
